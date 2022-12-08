@@ -1,7 +1,7 @@
 # Programowanie Reaktywne II
 Semestr 5, 2022 - zimowy
 ## Projekt
-![](preview/Screenshot 2022-12-09 at 00-16-54 React App.png)
+![ąlt text](https://raw.githubusercontent.com/rufus7331/projekt_react/master/preview/Screenshot%202022-12-09%20at%2000-16-54%20React%20App.png)
 
 
 In the project directory, you can run:
