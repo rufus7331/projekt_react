@@ -4,6 +4,7 @@ import './MovieCard.css'
 const MovieCard = (props) => {
 
     const API_IMG="https://image.tmdb.org/t/p/w500/"
+
   return (
       <div className="movie_card">
         <div className="poster">

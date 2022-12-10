@@ -1,6 +1,6 @@
 import './App.css';
 import {useEffect, useState} from "react";
-import MovieCard from "./MovieCard";
+import MoviesContainer from "./components/MoviesContainer";
 
 function App() {
     const API_URL = "https://api.themoviedb.org/3/movie/popular?api_key=b0d96495bb7ff9a7b9ee1ba364f2b982"
@@ -48,23 +48,19 @@ function App() {
                 </div>
             </div>
 
+            <MoviesContainer movies={movies}/>
 
-            <div className="movies">
-                {movies.map((movie) =>
-                    <MovieCard {...movie}/>
-                )}
-            </div>
-<div className="App_footer">
+            <div className="App_footer">
 
 
-            <div className="card w-75">
-                <div className="card-body">
-                    <h5 className="card-title">Wykonano</h5>
-                    <p className="card-text">Copyrights © Hubert Pochroń | 2022</p>
-                    <a href="https://github.com/rufus7331" className="btn btn-primary">Kontakt</a>
+                <div className="card w-75">
+                    <div className="card-body">
+                        <h5 className="card-title">Wykonano</h5>
+                        <p className="card-text">Copyrights © Hubert Pochroń | 2022</p>
+                        <a href="https://github.com/rufus7331" className="btn btn-primary">Kontakt</a>
+                    </div>
                 </div>
             </div>
-</div>
         </div>
     );
 }
