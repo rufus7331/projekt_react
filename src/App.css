@@ -34,3 +34,14 @@
     justify-content: center;
     text-align: center;
 }
+.info {
+    display: flex;
+    flex-direction: column;
+    background-color: #5858b9;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(77, 77, 161);
+}
+
