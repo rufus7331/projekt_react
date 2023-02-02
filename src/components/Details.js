@@ -1,19 +1,20 @@
 import React, { useState,useEffect } from 'react';
 import "../App.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import Axios from "axios"
 import {useParams} from "react-router-dom"
+import Navbar from "./Navbar";
+import {decodeToken, isExpired} from "react-jwt";
+import axios from "axios";
+import Footer from "./Footer";
 
 function Details(){
     const {movieid} = useParams()
-    //console.log(movieid)
     const [data, setData] = useState([])
 
-    const API_IMG="https://image.tmdb.org/t/p/w500/"
-
     useEffect(() => {
-        Axios.get("https://api.themoviedb.org/3/movie/"+ movieid+"?api_key=b0d96495bb7ff9a7b9ee1ba364f2b982&language=en-US")
+        Axios.get("https://at.usermd.net/api/movies/"+movieid)
             .then(res => {
                 console.log(res.data)
                 setData(res.data)
@@ -21,49 +22,36 @@ function Details(){
             .catch(err => console.log(err))
     }, []);
 
+    const isNotLogged = isExpired(localStorage.getItem('token'))
+    const isAdmin = isNotLogged ? false : decodeToken(localStorage.getItem('token')).isAdmin;
+    const deleteVideo = () => {
+        axios.delete(`https://at.usermd.net/api/movie/${movieid}`)
+            .then((response) => {
+                navigate("/");
+                console.log(response);
+            })
+            .catch((error) =>{
+                console.log(error);
+            })
+    }
+    const navigate = useNavigate();
     return (
-        <div className="details">
+        <div className="details" style={{height: 1000}}>
+            <Navbar/>
 
             <div>
-                <img src={API_IMG + data.poster_path} className="rounded mx-auto d-block" alt=""/>
+                <img src={data.image} className="rounded mx-auto d-block" alt=""/>
             </div>
 
             <div>
                 <div className="info">
                     <h1 className="title">{data.title}</h1>
-                    <p className=".text-warning">{"Score: " +data.vote_average}</p>
-                    <h3>{data.overview}</h3>
-                </div>
-
-                <div className="info">
-                    <table className="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">Popularity</th>
-                            <th scope="col">Budget</th>
-                            <th scope="col">Revenue</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">{data.popularity}</th>
-                            <td>{data.budget+"$"}</td>
-                            <td>{data.revenue+"$"}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-
-            <div className="card w-100">
-                <div className="card-body">
-                    <h5 className="card-title">Wykonano</h5>
-                    <p className="card-text">Copyrights © Hubert Pochroń | 2022</p>
-                    <a href="https://github.com/rufus7331" className="btn btn-primary">Kontakt</a>
-                    <Link to='/'  className='btn btn-secondary'>Powrót na strone główną</Link>
+                    <p className=".text-warning">{data.content}</p>
+                    {isAdmin ? <div><button class="btn btn-danger" onClick={deleteVideo}>DELETE</button></div> : null}
                 </div>
             </div>
+
+           <Footer/>
 
 
         </div>

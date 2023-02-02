@@ -33,5 +33,5 @@
 }
 
 .movie_card:hover .overview{
-    transform: translateY(0%);
+    transform: translateY(75%);
 }
