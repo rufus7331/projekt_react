@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./login.css"
 
 const LoginForm = () => {
     const [account, setAccount] = useState({
@@ -40,11 +41,11 @@ const LoginForm = () => {
                 navigate('/');
                 //window.location.reload();
             }).catch((error) => {
-            const errors = {};
-            errors.password = 'Given name does\'t exists or password is wrong!';
-            setErrors(errors || {});
-            console.log(error);
-        });
+                const errors = {};
+                errors.password = 'Given name does\'t exists or password is wrong!';
+                setErrors(errors || {});
+                console.log(error);
+            });
     };
 
     const handleChange = (event) => {
@@ -55,11 +56,15 @@ const LoginForm = () => {
     };
 
     return (
-        <div>
-            <h1>Login</h1>
+        <div className='TextFieldContainer'>
+            <img src={"https://t4.ftcdn.net/jpg/04/64/96/91/360_F_464969171_EhrkPWQOrARbuyIHL8Na6H6OzJkYZwwQ.jpg"} className="App-logo" alt="logo" />
+            <h2>Login</h2>
             <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="username">Email address</label>
+                <div className='email'>
+                    <label htmlFor='email'>
+                        Login
+                    </label>
+
                     <input value={account.username}
                            name="username"
                            onChange={handleChange}
@@ -67,25 +72,27 @@ const LoginForm = () => {
                            className="form-control"
                            id="username"
                            aria-describedby="emailHelp"
-                           placeholder="Username"/>
-                    {errors.username &&
-                        <div className="alert alert-danger">{errors.username}</div>}
+                           placeholder="Username"/>  
                 </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
+                <div className='password'>
+                    <label htmlFor='email'>
+                        Hasło
+                    </label>
                     <input value={account.password}
-                           name="password"
-                           onChange={handleChange}
-                           type="password"
-                           className="form-control"
-                           id="password"
-                           placeholder="Password"/>
-                    {errors.password &&
-                        <div className="alert alert-danger">{errors.password}</div>}
+                        name="password"
+                        onChange={handleChange}
+                        type="password"
+                        className="form-control"
+                        id="password"
+                        placeholder="Password" />
                 </div>
-                <button type="submit" className="btn btn-primary">Login</button>
+                {errors.password && <p className='text-danger'>Błędny login lub hasło</p>}
+                <div className='submit'>
+                    <button type='submit'>
+                        Zaloguj
+                    </button>
+                </div>
             </form>
-
         </div>
     );
 };

@@ -53,50 +53,106 @@ const SignUpForm = () => {
     };
 
     return (
-        <div>
-            <h1>Sign Up</h1>
+        <div className='TextFieldContainer'>
+            <img src={"https://t4.ftcdn.net/jpg/04/64/96/91/360_F_464969171_EhrkPWQOrARbuyIHL8Na6H6OzJkYZwwQ.jpg"} className="App-logo" alt="logo" />
+            <h2>Zarejestruj się</h2>
             <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="username">Name</label>
+                <div className='email'>
+                    <label htmlFor='email'>
+                        Login
+                    </label>
+
                     <input value={account.name}
-                           name="name"
-                           onChange={handleChange}
-                           type="text"
-                           className="form-control"
-                           id="username"
-                           aria-describedby="emailHelp"
-                           placeholder="Username"/>
-                    {errors.name &&
-                        <div className="alert alert-danger">{errors.name}</div>}
+                        name="name"
+                        onChange={handleChange}
+                        type="text"
+                        className="form-control"
+                        id="username"
+                        aria-describedby="emailHelp"
+                        placeholder="Username" />
+
                 </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email address</label>
+                <div className='password'>
+                    <label htmlFor='email'>
+                        Email
+                    </label>
                     <input value={account.email}
-                           name="email"
-                           onChange={handleChange}
-                           type="email"                              className="form-control"
-                           id="email"
-                           aria-describedby="emailHelp"
-                           placeholder="Email"/>
+                        name="email"
+                        onChange={handleChange}
+                        type="email"
+                        className="form-control"
+                        id="email"
+                        aria-describedby="emailHelp"
+                        placeholder="Email" />
+
                     {errors.email &&
                         <div className="alert alert-danger">{errors.email}</div>}
                 </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
+                <div className='password'>
+                    <label htmlFor='email'>
+                        Hasło
+                    </label>
                     <input value={account.password}
-                           name="password"
-                           onChange={handleChange}
-                           type="password"
-                           className="form-control"
-                           id="password"
-                           placeholder="Password"/>
+                        name="password"
+                        onChange={handleChange}
+                        type="password"
+                        className="form-control"
+                        id="password"
+                        placeholder="Password" />
                     {errors.password &&
                         <div className="alert alert-danger">{errors.password}</div>}
                 </div>
-                <button type="submit" className="btn btn-primary">SignUp</button>
+                <div className='submit'>
+                    <button type='submit'>
+                        Zaloguj
+                    </button>
+                </div>
             </form>
-
         </div>
+        // <div>
+        //     <h1>Sign Up</h1>
+        //     <form onSubmit={handleSubmit}>
+        //         <div className="form-group">
+        //             <label htmlFor="username">Name</label>
+        //             <input value={account.name}
+        //                    name="name"
+        //                    onChange={handleChange}
+        //                    type="text"
+        //                    className="form-control"
+        //                    id="username"
+        //                    aria-describedby="emailHelp"
+        //                    placeholder="Username"/>
+        //             {errors.name &&
+        //                 <div className="alert alert-danger">{errors.name}</div>}
+        //         </div>
+        //         <div className="form-group">
+        //             <label htmlFor="email">Email address</label>
+        //             <input value={account.email}
+        //                    name="email"
+        //                    onChange={handleChange}
+        //                    type="email"                              className="form-control"
+        //                    id="email"
+        //                    aria-describedby="emailHelp"
+        //                    placeholder="Email"/>
+        //             {errors.email &&
+        //                 <div className="alert alert-danger">{errors.email}</div>}
+        //         </div>
+        //         <div className="form-group">
+        //             <label htmlFor="password">Password</label>
+        //             <input value={account.password}
+        //                    name="password"
+        //                    onChange={handleChange}
+        //                    type="password"
+        //                    className="form-control"
+        //                    id="password"
+        //                    placeholder="Password"/>
+        //             {errors.password &&
+        //                 <div className="alert alert-danger">{errors.password}</div>}
+        //         </div>
+        //         <button type="submit" className="btn btn-primary">SignUp</button>
+        //     </form>
+
+        // </div>
     );
 }
 

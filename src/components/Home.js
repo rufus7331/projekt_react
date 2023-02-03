@@ -45,7 +45,7 @@ export function Home({setSearch,search=""}) {
 
 
 
-            <Footer/>
+            <Footer className="footer"/>
         </div>
     )
 }
