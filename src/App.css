@@ -11,7 +11,9 @@
 .navbar {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    position:absolute;
+    bottom:0;
 }
 .searchInput {
     width: 30%;
