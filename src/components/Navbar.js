@@ -32,8 +32,10 @@ const Navbar = ({ setSearch }) => {
 
     return (
         <div className="navbar">
+
             <h2>
-                <Link to="/">FilmHub</Link>
+                <Link to="/" class="btn btn-lg btn-outline-warning" id="pills-home-tab" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="true">
+                    FilmHub</Link>
             </h2>
 
             <Link to="/add" class="btn btn-lg btn-success" id="pills-home-tab" data-toggle="pill" role="tab" aria-controls="pills-home" aria-selected="true">
@@ -61,7 +63,7 @@ const Navbar = ({ setSearch }) => {
                     <button type="button" className="btn btn-danger" onClick={logout}>LogOut</button>
                 }
                 </div>
-   
+
             </div>
         </div>
     );
